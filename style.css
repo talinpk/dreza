@@ -1,0 +1,103 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+header {
+    text-align: center;
+    padding: 20px;
+    background-color: #0077cc; /* Azul suave */
+    color: white;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.date {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    overflow: hidden;
+    text-align: center;
+    background-color: white;
+    transition: transform 0.2s, filter 0.2s;
+}
+
+.date img {
+    width: 100%;
+    height: auto;
+}
+
+.date h2 {
+    margin: 10px 0;
+    padding: 0;
+    color: #005a99; /* Azul escuro para o texto */
+}
+
+/* Classe para dates não feitos */
+.naofeito {
+    filter: grayscale(100%); /* Escala de cinza */
+    cursor: pointer;
+}
+
+.naofeito:hover {
+    filter: none; /* Retorna à cor no hover */
+}
+
+/* Classe para dates já feitos */
+.feito {
+    cursor: pointer; }
+
+
+  /* Estilo do modal */
+.modal {
+    display: none; /* Oculto por padrão */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8); /* Fundo semi-transparente */
+}
+
+/* Imagem dentro do modal */
+.modal-content {
+    margin: auto;
+    display: block;
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 10px;
+}
+
+/* Texto de legenda */
+#caption {
+    text-align: center;
+    color: white;
+    padding: 10px;
+    font-size: 18px;
+}
+
+/* Botão de fechar */
+.close {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.close:hover {
+    color: #ccc;
+}
+  
