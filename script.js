@@ -4,7 +4,7 @@ function restoreColor(element) {
 
 function dimColor(element) {
     if (element.classList.contains("past")) {
-        element.style.filter = "grayscale(100%)";
+        element.style.filter = "grayscale(100% )";
     }
 }
 
