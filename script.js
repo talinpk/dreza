@@ -77,17 +77,17 @@ document.querySelector("header").insertAdjacentHTML("beforeend",
         { img: "img/acai.jpg", legenda: "O açaí mais doce que já tomamos 🍧" },
         { img: "img/tempo_qualidade.jpg", legenda: "Só nós e o tempo 💫" },
         { img: "img/sabadinho.jpg", legenda: "Um sábado de samba, sorrisos e sintonia 🎶" },
-        { img: "img/Superfaturado.jpg", legenda: "Nosso primeiro date — até o café caro valeu cada segundo ☕💙" },
-        { img: "img/volei.jpg", legenda: "Entre risadas e manchetes, um dia com os amigos 🏐💛" },
-        { img: "img/ph.jpg", legenda: "A balada ficou pequena perto do brilho do teu sorriso 💃✨" },
+        { img: "img/Superfaturado.jpg", legenda: "Nosso primeiro date e aquela luz amarela... ☕💙" },
+        { img: "img/volei.jpg", legenda: "no dia furamos 2 bolas 🏐💛" },
+        { img: "img/ph.jpg", legenda: "Quem lembra lembra 💃✨" },
         { img: "img/bosque.jpg", legenda: "Ar livre, natureza e nós dois... perfeito 🌳🫶" },
         { img: "img/sky.jpg", legenda: "A cidade embaixo, você ao lado e o coração nas nuvens 🌌🎧" },
-        { img: "img/stelar.jpg", legenda: "Te ver assistindo meu filme favorito foi como ver as estrelas alinhadas 💫🎬" },
+        { img: "img/stelar.jpg", legenda: "Te ver assistindo foi como ver as estrelas alinhadas 💫🎬" },
         { img: "img/niver_dreza.jpg", legenda: "O dia foi seu, mas o presente sou eu que ganhei 🎂💙" },
         { img: "img/natal.jpg", legenda: "Nosso primeiro Natal juntos — e o melhor presente foi ter você 🎄🫶" },
         { img: "img/lagoa.jpg", legenda: "A cidade brilhava, mas quem iluminava tudo era você ✨🌃" },
         { img: "img/nov.jpg", legenda: "Ali, sob as luzes de fim de ano, meu pedido virou nosso sim 💍🎇" },
-        { img: "img/Lovina.jpg", legenda: "Matuê tocando, a vibe insana e eu só pensando em você no Lovina 🎤🔥" }
+        { img: "img/Lovina.jpg", legenda: "Quem não é Tuê é carta fora do baralho 🎤🔥" }
     ];
     
     document.getElementById("memoria-btn").addEventListener("click", () => {
