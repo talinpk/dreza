@@ -39,3 +39,18 @@ document.addEventListener('DOMContentLoaded', () => {
 document.querySelectorAll('.date img').forEach(img => {
     img.addEventListener('click', () => console.log(`Clicou em: ${img.alt}`));
 });
+
+const frases = [
+    "Cada momento com você é especial 💕",
+    "Nosso amor em cada date 🌙",
+    "Mal posso esperar pelo próximo 💖",
+];
+document.querySelector("header").insertAdjacentHTML("beforeend",
+    `<p>${frases[Math.floor(Math.random() * frases.length)]}</p>`);
+
+
+
+    const feitos = document.querySelectorAll(".date.feito").length;
+document.querySelector("header").insertAdjacentHTML("beforeend", 
+    `<p>Já vivemos ${feitos} momentos incríveis juntos! ✨</p>`);
+

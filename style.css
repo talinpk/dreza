@@ -1,15 +1,15 @@
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Quicksand', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    background-color: #fff5f7;
     color: #333;
 }
 
 header {
     text-align: center;
     padding: 20px;
-    background-color: #0077cc; /* Azul suave */
+    background-color: #f06292;
     color: white;
 }
 
@@ -17,26 +17,22 @@ main {
     padding: 20px;
 }
 
-.section {
-    margin-bottom: 40px;
-}
-
 .section h2 {
     font-family: 'Georgia', serif;
     font-size: 1.8rem;
     text-align: center;
     margin-bottom: 20px;
-    color: #555;
+    color: #6a1b9a;
 }
 
-.dates-nao-feitos {
-    background-color: #d3d3d3; /* Cinza claro */
+.dates-feitos {
+    background-color: #fce4ec;
     padding: 20px;
     border-radius: 10px;
 }
 
-.dates-feitos {
-    background-color: #6bc3d1; /* Azul inspirado na paleta */
+.dates-nao-feitos {
+    background-color: #e1bee7;
     padding: 20px;
     border-radius: 10px;
 }
@@ -48,34 +44,59 @@ main {
 }
 
 .date {
-    border: 1px solid #ccc;
-    border-radius: 8px;
+    border: none;
+    border-radius: 16px;
     overflow: hidden;
     text-align: center;
     background-color: white;
-    transition: transform 0.2s, filter 0.2s;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.date:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
 }
 
 .date img {
     width: 100%;
     height: auto;
+    transition: filter 0.2s ease;
 }
 
-.date h3 {
+.date h2, .date h3 {
     margin: 10px 0;
     padding: 0;
-    color: #005a99; /* Azul escuro para o texto */
+    color: #6a1b9a;
 }
 
 .naofeito {
-    filter: grayscale(100%); /* Escala de cinza */
+    filter: grayscale(100%);
     cursor: pointer;
 }
 
 .naofeito:hover {
-    filter: none; /* Retorna à cor no hover */
+    filter: none;
 }
 
 .feito {
     cursor: pointer;
+}
+
+
+body::before {
+    content: "💖 💕 💘 💝 💗";
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    font-size: 30px;
+    opacity: 0.1;
+    animation: float 10s infinite linear;
+    z-index: -1;
+}
+
+@keyframes float {
+    0% { transform: translateY(100px); }
+    100% { transform: translateY(-100vh); }
 }
