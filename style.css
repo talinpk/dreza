@@ -7,6 +7,7 @@ body {
     background-color: #f0f8ff;
     color: #2c3e50;
     overflow-x: hidden;
+    
 }
 
 header {
@@ -152,6 +153,29 @@ body::before {
     z-index: -1;
 }
 
+.date {
+    position: relative;
+    overflow: hidden;
+}
+
+.date::before {
+    content: '';
+    position: absolute;
+    top: -100%;
+    left: -100%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(255,255,255,0.2), transparent);
+    transform: rotate(25deg);
+    transition: 0.5s;
+    pointer-events: none;
+}
+
+.date:hover::before {
+    top: 100%;
+    left: 100%;
+}
+
 .date h2, .date h3 {
     text-shadow: 1px 1px 3px rgba(33, 150, 243, 0.2);
 }
@@ -188,25 +212,3 @@ body {
 }
 
 
-.date {
-    position: relative;
-    overflow: hidden;
-}
-
-.date::before {
-    content: '';
-    position: absolute;
-    top: -100%;
-    left: -100%;
-    width: 200%;
-    height: 200%;
-    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-    transform: rotate(25deg);
-    transition: 0.5s;
-    pointer-events: none;
-}
-
-.date:hover::before {
-    top: 100%;
-    left: 100%;
-}
