@@ -136,3 +136,77 @@ body::before {
     0% { transform: translateY(0); }
     100% { transform: translateY(-120vh); }
 }
+
+.grid-container {
+    position: relative;
+}
+
+.grid-container::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background-color: #b3e5fc;
+    z-index: -1;
+}
+
+.date h2, .date h3 {
+    text-shadow: 1px 1px 3px rgba(33, 150, 243, 0.2);
+}
+
+
+body {
+    background: linear-gradient(270deg, #e3f2fd, #dceeff, #f0f8ff);
+    background-size: 600% 600%;
+    animation: gradienteAnimado 15s ease infinite;
+}
+
+@keyframes gradienteAnimado {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+}
+
+.date {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+.date:nth-child(1) { animation-delay: 0.1s; }
+.date:nth-child(2) { animation-delay: 0.2s; }
+.date:nth-child(3) { animation-delay: 0.3s; }
+/* Continue até o número de cards */
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+.date {
+    position: relative;
+    overflow: hidden;
+}
+
+.date::before {
+    content: '';
+    position: absolute;
+    top: -100%;
+    left: -100%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transform: rotate(25deg);
+    transition: 0.5s;
+    pointer-events: none;
+}
+
+.date:hover::before {
+    top: 100%;
+    left: 100%;
+}
