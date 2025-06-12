@@ -106,3 +106,27 @@ document.querySelector("header").insertAdjacentHTML("beforeend",
             }, 800);
         });
     });
+    document.querySelectorAll('.date.naofeito').forEach(card => {
+        card.addEventListener('click', () => {
+            if (!card.querySelector('.msg')) {
+                const msg = document.createElement('p');
+                msg.className = 'msg';
+                msg.innerText = "Preparando esse date... em breve 💫";
+                msg.style.color = '#1565c0';
+                msg.style.fontStyle = 'italic';
+                msg.style.marginTop = '10px';
+                card.appendChild(msg);
+            }
+        });
+    });
+
+    function adicionarDate() {
+        const val = document.getElementById('novo-date').value;
+        if (val.trim() !== "") {
+            const li = document.createElement("li");
+            li.innerText = val;
+            document.getElementById("lista-dates").appendChild(li);
+            document.getElementById("novo-date").value = "";
+        }
+    }
+    

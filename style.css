@@ -1,15 +1,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap');
 
+/* ==== Base ==== */
 body {
     font-family: 'Quicksand', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f0f8ff;
-    color: #2c3e50;
     overflow-x: hidden;
-    
+    color: #2c3e50;
+    background: linear-gradient(270deg, #e3f2fd, #dceeff, #f0f8ff);
+    background-size: 600% 600%;
+    animation: gradienteAnimado 15s ease infinite;
 }
 
+@keyframes gradienteAnimado {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* ==== Header ==== */
 header {
     text-align: center;
     padding: 20px;
@@ -18,6 +27,7 @@ header {
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
+/* ==== Layout geral ==== */
 main {
     padding: 20px;
 }
@@ -29,116 +39,24 @@ main {
     color: #1565c0;
 }
 
-.dates-feitos {
-    background-color: #dceeff;
+/* ==== Containers ==== */
+.dates-feitos, .dates-nao-feitos {
     padding: 20px;
     border-radius: 10px;
 }
 
+.dates-feitos {
+    background-color: #dceeff;
+}
+
 .dates-nao-feitos {
     background-color: #e3f2fd;
-    padding: 20px;
-    border-radius: 10px;
 }
 
 .grid-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 20px;
-}
-
-.date {
-    border-radius: 16px;
-    overflow: hidden;
-    text-align: center;
-    background-color: white;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeInUp 0.5s forwards;
-}
-
-.date:hover {
-    transform: scale(1.05);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-}
-
-.date img {
-    width: 100%;
-    height: auto;
-    transition: filter 0.2s ease;
-}
-
-.date h2, .date h3 {
-    margin: 10px 0;
-    color: #1565c0;
-}
-
-.naofeito {
-    filter: grayscale(100%);
-    cursor: pointer;
-}
-
-.naofeito:hover {
-    filter: none;
-}
-
-.feito {
-    cursor: pointer;
-}
-
-/* Efeitos de entrada animada */
-@keyframes fadeInUp {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.date img {
-    width: 100%;
-    height: auto;
-    transition: transform 0.4s ease-in-out;
-}
-
-.date:hover img {
-    transform: scale(1.05);
-}
-
-.date:hover {
-    box-shadow: 0 0 15px rgba(129, 212, 250, 0.5); /* Azul claro */
-}
-
-.date.clicked {
-    animation: pulse 0.4s;
-}
-
-@keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.05); }
-    100% { transform: scale(1); }
-}
-
-
-/* Corações azuis flutuando no fundo */
-body::before {
-    content: "💙 💫 💙 💙 💫 💙 💫 💙💙 💫 💙 💫 💙💙 💫 💙 💫 💙💙 💫 💙 💫 💙💙 💫 💙 💫 💙💙 💫 💙 💫 💙💙 💫 💙 💫 💙💙 💫 💙 💫 💙💙 💫 💙 💫 💙💙 💫 💙 💫 💙💫 💙";
-    position: fixed;
-    bottom: -40px;
-    left: 10%;
-    font-size: 32px;
-    opacity: 0.07;
-    animation: floatUp 15s infinite linear;
-    z-index: -1;
-}
-
-@keyframes floatUp {
-    0% { transform: translateY(0); }
-    100% { transform: translateY(-120vh); }
-}
-
-.grid-container {
     position: relative;
 }
 
@@ -153,9 +71,41 @@ body::before {
     z-index: -1;
 }
 
+/* ==== Cards (Dates) ==== */
 .date {
     position: relative;
+    border-radius: 16px;
     overflow: hidden;
+    text-align: center;
+    background-color: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+.date:nth-child(1) { animation-delay: 0.1s; }
+.date:nth-child(2) { animation-delay: 0.2s; }
+.date:nth-child(3) { animation-delay: 0.3s; }
+
+.date:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(129, 212, 250, 0.5);
+}
+
+.date.clicked {
+    animation: pulse 0.4s;
+}
+
+.date img {
+    width: 100%;
+    height: auto;
+    transition: transform 0.4s ease-in-out;
+}
+
+.date:hover img {
+    transform: scale(1.05);
 }
 
 .date::before {
@@ -177,33 +127,26 @@ body::before {
 }
 
 .date h2, .date h3 {
+    margin: 10px 0;
+    color: #1565c0;
     text-shadow: 1px 1px 3px rgba(33, 150, 243, 0.2);
 }
 
-
-body {
-    background: linear-gradient(270deg, #e3f2fd, #dceeff, #f0f8ff);
-    background-size: 600% 600%;
-    animation: gradienteAnimado 15s ease infinite;
+/* ==== Estados ==== */
+.naofeito {
+    filter: grayscale(100%);
+    cursor: pointer;
 }
 
-@keyframes gradienteAnimado {
-    0% {background-position: 0% 50%;}
-    50% {background-position: 100% 50%;}
-    100% {background-position: 0% 50%;}
+.naofeito:hover {
+    filter: none;
 }
 
-.date {
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeInUp 0.6s ease forwards;
+.feito {
+    cursor: pointer;
 }
 
-.date:nth-child(1) { animation-delay: 0.1s; }
-.date:nth-child(2) { animation-delay: 0.2s; }
-.date:nth-child(3) { animation-delay: 0.3s; }
-/* Continue até o número de cards */
-
+/* ==== Animações ==== */
 @keyframes fadeInUp {
     to {
         opacity: 1;
@@ -211,6 +154,30 @@ body {
     }
 }
 
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+/* ==== Corações no fundo ==== */
+body::before {
+    content: "💙 💫 💙 💙 💫 💙 💫 💙💙 💫 💙 💫 💙💙 💫 💙 💫 💙";
+    position: fixed;
+    bottom: -40px;
+    left: 10%;
+    font-size: 32px;
+    opacity: 0.07;
+    animation: floatUp 15s infinite linear;
+    z-index: -1;
+}
+
+@keyframes floatUp {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-120vh); }
+}
+
+/* ==== Tela de entrada ==== */
 #intro-screen {
     position: fixed;
     top: 0;
@@ -257,6 +224,7 @@ body {
     100% { opacity: 1; transform: scale(1); }
 }
 
+/* ==== Botão e bloco de memória ==== */
 #memoria-btn {
     display: inline-block;
     margin: 20px auto;
@@ -283,12 +251,100 @@ body {
     background-color: #e3f2fd;
     padding: 20px;
     border-radius: 16px;
-    box-shadow: 0 4px 1
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    text-align: center;
 }
 
+#memoria-img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
 
+#memoria-legenda {
+    color: #1565c0;
+    font-weight: 500;
+}
 
+/* ==== Centralização ==== */
 .center-btn {
     text-align: center;
     margin: 30px 0;
+}
+
+.adicionar-date {
+    background-color: #ffffff;
+    padding: 25px 20px;
+    border-radius: 16px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    max-width: 500px;
+    margin: 40px auto;
+    text-align: center;
+    border: 2px solid #dceeff;
+}
+
+.adicionar-date h3 {
+    color: #1565c0;
+    margin-bottom: 15px;
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+.adicionar-date input[type="text"] {
+    width: 100%;
+    max-width: 300px;
+    padding: 12px 16px;
+    margin-bottom: 12px;
+    border: 2px solid #b3dfff;
+    border-radius: 30px;
+    font-size: 1rem;
+    outline: none;
+    transition: 0.3s;
+    background-color: #f5fbff;
+    color: #2c3e50;
+}
+
+.adicionar-date input[type="text"]::placeholder {
+    color: #a0bacc;
+}
+
+.adicionar-date input[type="text"]:focus {
+    border-color: #4a90e2;
+    box-shadow: 0 0 8px rgba(74, 144, 226, 0.2);
+    background-color: #fff;
+}
+
+.adicionar-date button {
+    background-color: #4a90e2;
+    color: white;
+    border: none;
+    padding: 10px 22px;
+    border-radius: 30px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    margin-top: 5px;
+}
+
+.adicionar-date button:hover {
+    background-color: #357ab8;
+    transform: scale(1.05);
+}
+
+#lista-dates {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+    text-align: left;
+}
+
+#lista-dates li {
+    background-color: #e3f2fd;
+    border-left: 4px solid #4a90e2;
+    padding: 10px 15px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    color: #1565c0;
 }
