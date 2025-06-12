@@ -54,3 +54,12 @@ document.querySelector("header").insertAdjacentHTML("beforeend",
 document.querySelector("header").insertAdjacentHTML("beforeend", 
     `<p>Já vivemos ${feitos} momentos incríveis juntos! ✨</p>`);
 
+
+    document.querySelectorAll('.date img').forEach(img => {
+        img.addEventListener('click', () => {
+            const card = img.closest('.date');
+            card.classList.add('clicked');
+            setTimeout(() => card.classList.remove('clicked'), 400);
+        });
+    });
+    

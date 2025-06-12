@@ -1,16 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap');
+
 body {
     font-family: 'Quicksand', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #fff5f7;
-    color: #333;
+    background-color: #f0f8ff;
+    color: #2c3e50;
+    overflow-x: hidden;
 }
 
 header {
     text-align: center;
     padding: 20px;
-    background-color: #f06292;
+    background-color: #4a90e2;
     color: white;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
 main {
@@ -18,21 +22,20 @@ main {
 }
 
 .section h2 {
-    font-family: 'Georgia', serif;
     font-size: 1.8rem;
     text-align: center;
     margin-bottom: 20px;
-    color: #6a1b9a;
+    color: #1565c0;
 }
 
 .dates-feitos {
-    background-color: #fce4ec;
+    background-color: #dceeff;
     padding: 20px;
     border-radius: 10px;
 }
 
 .dates-nao-feitos {
-    background-color: #e1bee7;
+    background-color: #e3f2fd;
     padding: 20px;
     border-radius: 10px;
 }
@@ -44,18 +47,20 @@ main {
 }
 
 .date {
-    border: none;
     border-radius: 16px;
     overflow: hidden;
     text-align: center;
     background-color: white;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.5s forwards;
 }
 
 .date:hover {
     transform: scale(1.05);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
 }
 
 .date img {
@@ -66,8 +71,7 @@ main {
 
 .date h2, .date h3 {
     margin: 10px 0;
-    padding: 0;
-    color: #6a1b9a;
+    color: #1565c0;
 }
 
 .naofeito {
@@ -83,20 +87,52 @@ main {
     cursor: pointer;
 }
 
+/* Efeitos de entrada animada */
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 
-body::before {
-    content: "💖 💕 💘 💝 💗";
-    position: fixed;
-    bottom: 0;
-    left: 0;
+.date img {
     width: 100%;
-    font-size: 30px;
-    opacity: 0.1;
-    animation: float 10s infinite linear;
+    height: auto;
+    transition: transform 0.4s ease-in-out;
+}
+
+.date:hover img {
+    transform: scale(1.05);
+}
+
+.date:hover {
+    box-shadow: 0 0 15px rgba(129, 212, 250, 0.5); /* Azul claro */
+}
+
+.date.clicked {
+    animation: pulse 0.4s;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+
+/* Corações azuis flutuando no fundo */
+body::before {
+    content: "💙 💫 💙 💙 💫 💙 💫 💙💙 💫 💙 💫 💙💙 💫 💙 💫 💙💙 💫 💙 💫 💙💙 💫 💙 💫 💙💙 💫 💙 💫 💙💙 💫 💙 💫 💙💙 💫 💙 💫 💙💙 💫 💙 💫 💙💙 💫 💙 💫 💙💫 💙";
+    position: fixed;
+    bottom: -40px;
+    left: 10%;
+    font-size: 32px;
+    opacity: 0.07;
+    animation: floatUp 15s infinite linear;
     z-index: -1;
 }
 
-@keyframes float {
-    0% { transform: translateY(100px); }
-    100% { transform: translateY(-100vh); }
+@keyframes floatUp {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-120vh); }
 }
