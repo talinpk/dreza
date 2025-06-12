@@ -97,3 +97,12 @@ document.querySelector("header").insertAdjacentHTML("beforeend",
         document.getElementById("memoria-box").style.display = "block";
     });
     
+    document.querySelectorAll('.date img').forEach(img => {
+        img.addEventListener('click', () => {
+            const original = img.src;
+            img.src = "img/tobi.jpg"; // Caminho para a imagem temporária
+            setTimeout(() => {
+                img.src = original;
+            }, 800);
+        });
+    });
